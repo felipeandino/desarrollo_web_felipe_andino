@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Actividades</title>
+    <link rel="stylesheet" href="estilos.css">
+    <script defer src="listado.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Listado de Actividades</h1>
+        <nav>
+            <ul>
+                <li><a href="portada.html">Inicio</a></li>
+                <li><a href="formulario.html">Agregar Actividad</a></li>
+                <li><a href="listado.html">Listado de Actividades</a></li>
+                <li><a href="estadisticas.html">Estadísticas</a></li>
+            </ul>
+        </nav>
+    </header>
+
+<main>
+    <div id="tabla-actividades">
+        <table>
+            <thead>
+                <tr>
+                    <th>Inicio</th>
+                    <th>Término</th>
+                    <th>Comuna</th>
+                    <th>Sector</th>
+                    <th>Tema</th>
+                    <th>Organizador</th>
+                    <th>Total Fotos</th>
+                </tr>
+            </thead>
+
+            <tbody id="cuerpo-tabla">
+                <!-- Actividad 1-->
+                <tr class="actividad" data-id="1">
+                    <td>2025-02-20 18:00</td>
+                    <td>2025-02-20 00:00</td>
+                    <td>Santiago</td>
+                    <td>Beauchef 850, Cancha</td>
+                    <td>Final UEFA Champions League</td>
+                    <td>Gianni Infantino</td>
+                    <td>5</td>
+                </tr>
+
+                <!-- Actividad 2-->
+                <tr class="actividad" data-id="2">
+                    <td>2025-02-28 08:00</td>
+                    <td>2025-02-28 12:00</td>
+                    <td>Maipú</td>
+                    <td>Plaza de Maipú</td>
+                    <td>Carrera corriendo como Naruto</td>
+                    <td>Pamela Jiles</td>
+                    <td>2</td>
+                </tr>
+
+                <!-- Actividad 3-->
+                <tr class="actividad" data-id="3">
+                    <td>2025-03-21 00:00</td>
+                    <td>2025-03-22 00:00</td>
+                    <td>Valparaíso</td>
+                    <td>Laguna Verde</td>
+                    <td>Cantata para celebrar la llegada del otoño</td>
+                    <td>Jaime Flores</td>
+                    <td>3</td>
+                </tr>
+
+                <!-- Actividad 4-->
+                <tr class="actividad" data-id="4">
+                    <td>2025-04-05 22:30</td>
+                    <td>2025-04-06 05:00</td>
+                    <td>Recoleta</td>
+                    <td>Av. Recoleta 345, Spot Freedom</td>
+                    <td>Carrete Otaku Dance</td>
+                    <td>Nicolás Liñán de Ariza</td>
+                    <td>2</td>
+                </tr>
+
+                <!-- Actividad 5-->
+                <tr class="actividad" data-id="5">
+                    <td>2025-04-18 00:00</td>
+                    <td>2025-04-21 00:00</td>
+                    <td>Providencia</td>
+                    <td>Parque Bustamante</td>
+                    <td>Recolección de Huevitos de Pascua</td>
+                    <td>Conejo de Pascua</td>
+                    <td>1</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <section id="detalle-actividad" style="display: none;">
+        <h2>Detalle de Actividad</h2>
+        <div id="contenido-detalle"></div>
+        <button id="volverListado">Volver al listado</button>
+        <button onclick="location.href='portada.html'">Volver a la Portada</button>
+    </section>
+
+    <div id="visor-foto" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#000000cc; justify-content:center; align-items:center;">
+        <div>
+            <img id="foto-grande" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="Foto ampliada" width="800" height="600" style="display: none;">
+            <br>
+            <button id="cerrarFoto">Cerrar</button>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <p>Gestión de Actividades Recreativas</p>
+</footer>
+
+</body>
+</html>

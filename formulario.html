@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Actividad Recreativa</title>
+    <link rel="stylesheet" href="estilos.css">
+    <script defer src="formulario.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Agregar Nueva Actividad</h1>
+        <nav>
+          <ul>
+            <li><a href="portada.html">Inicio</a></li>
+            <li><a href="formulario.html">Agregar Actividad</a></li>
+            <li><a href="listado.html">Listado de Actividades</a></li>
+            <li><a href="estadisticas.html">Estadísticas</a></li>
+          </ul>
+        </nav>
+    </header>
+
+<main>
+    <form id="actividadForm">
+    <fieldset>
+        <legend><b>Información del Lugar</b></legend>
+
+        <!-- Región -->
+        <label for="region">Región:</label>
+        <select id="region" name="region">
+            <option value="">Seleccione región</option>
+        </select><br>
+
+        <!-- Comuna -->
+        <label for="comuna">Comuna:</label>
+        <select id="comuna" name="comuna">
+            <option value="">Seleccione comuna</option>
+        </select><br>
+
+        <!-- Sector -->
+        <label for="comuna">Sector:</label>
+        <input type="text" name="sector" id="sector">
+    </fieldset>
+
+    <fieldset>
+        <legend><b>Datos del Organizador</b></legend>
+
+        <!-- Nombre -->
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre">
+
+        <!-- Email -->
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email" placeholder="Correo electrónico">
+
+        <!-- Celular -->
+        <label for="celular">Celular:</label>
+        <input type="tel" id="celular" name="celular" placeholder="+569 12345678">
+
+        <!-- Medio de contacto -->
+        <label>Contactar por:</label>
+        <div>
+            <label>
+                <input type="checkbox" name="contactarPor" value="WhatsApp" onchange="toggleInput(this)">
+                WhatsApp
+            </label>
+            <input type="text" placeholder="Ingrese número de WhatsApp" class="input-oculto" style="display: none;">
+        </div>
+      
+        <div>
+            <label>
+                <input type="checkbox" name="contactarPor" value="Telegram" onchange="toggleInput(this)">
+                Telegram
+            </label>
+            <input type="text" placeholder="Ingrese usuario de Telegram" class="input-oculto" style="display: none;">
+        </div>
+      
+        <div>
+            <label>
+                <input type="checkbox" name="contactarPor" value="X" onchange="toggleInput(this)">
+                X
+            </label>
+            <input type="text" placeholder="Ingrese usuario de X" class="input-oculto" style="display: none;">
+        </div>
+      
+        <div>
+            <label>
+                <input type="checkbox" name="contactarPor" value="Instagram" onchange="toggleInput(this)">
+                Instagram
+            </label>
+            <input type="text" placeholder="Ingrese usuario de Instagram" class="input-oculto" style="display: none;">
+        </div>
+      
+        <div>
+            <label>
+                <input type="checkbox" name="contactarPor" value="TikTok" onchange="toggleInput(this)">
+                TikTok
+            </label>
+            <input type="text" placeholder="Ingrese usuario de TikTok" class="input-oculto" style="display: none;">
+        </div>
+      
+        <div>
+            <label>
+                <input type="checkbox" name="contactarPor" value="Otro" onchange="toggleInput(this)">
+                Otro
+            </label>
+            <input type="text" placeholder="Ingrese método de contacto" class="input-oculto" style="display: none;">
+        </div>
+      
+        <script>
+            function toggleInput(checkbox) {
+                const input = checkbox.parentElement.parentElement.querySelector('input[type="text"]');
+                input.style.display = checkbox.checked ? 'inline-block' : 'none';
+            }
+        </script>
+
+        <!-- Campo dinámico para contacto -->
+        <div id="contactoInputContainer">
+            <input type="text" id="contactoInput" name="contactoInput" style="display: none;" placeholder="Tu usuario o identificador">
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <legend><b>Información de la Actividad</b></legend>
+
+        <!-- Tema de la actividad -->
+        <label for="tema">Tema de la actividad:</label>
+        <select id="tema" name="tema">
+            <option value="">Seleccione tema</option>
+            <option value="Música">Música</option>
+            <option value="Deporte">Deporte</option>
+            <option value="Ciencias">Ciencias</option>
+            <option value="Religión">Religión</option>
+            <option value="Política">Política</option>
+            <option value="Tecnología">Tecnología</option>
+            <option value="Juegos">Juegos</option>
+            <option value="Baile">Baile</option>
+            <option value="Comida">Comida</option>
+            <option value="Otro">Otro</option>
+        </select><br>
+
+        <!-- Campo dinámico si el tema es "Otro" -->
+        <div id="temaInputContainer">
+            <input type="text" id="temaInput" name="temaInput" style="display: none;" placeholder="Especifique el tema">
+        </div>
+
+        <!-- Fecha y hora -->
+        <label for="inicio">Fecha de inicio:</label>
+        <input type="datetime-local" id="inicio" name="inicio"><br>
+
+        <label for="termino">Fecha de término:</label>
+        <input type="datetime-local" id="termino" name="termino"><br>
+
+        <!-- Descripción -->
+        <label for="descripcion">Descripción:</label><br>
+        <textarea id="descripcion" name="descripcion" cols="50" rows="10" placeholder="Descripción opcional."></textarea><br>
+
+        <!-- Carga de fotos -->
+        <label>Fotos:</label>
+        <div id="fotosContainer"></div>
+        <button type="button" id="agregarFoto">Agregar foto</button><br>
+    </fieldset>
+
+    <!-- Botón de envío -->
+    <button type="submit">Enviar</button>
+
+    </form>
+
+<div id="confirmacionContainer" style="display: none; padding: 20px; border: 2px solid #444; background-color: #eee; margin-top: 20px;">
+    <p>¿Está seguro que desea agregar esta actividad?</p>
+    <button id="confirmarSi">Sí, estoy seguro</button>
+    <button id="confirmarNo">No, no estoy seguro, quiero volver al formulario</button>
+</div>
+  
+<div id="mensajeFinal" style="display: none; padding: 20px; background-color: #e0ffe0; margin-top: 20px;">
+    <p>Hemos recibido su información, muchas gracias y suerte en su actividad.</p>
+    <button id="volverPortada">Volver a la portada</button>
+</div>
+</main>
+
+<footer>
+    <p>Gestión de Actividades Recreativas</p>
+</footer>
+
+</body>
+</html>
